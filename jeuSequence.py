@@ -25,15 +25,14 @@ class Partie():
         print("Votre pointage : " + str(self.pointage) + " points")
              
     def affichage_regles(self):
-        print("|-----------------------------------------------------------------|")
-        print("|    Travail pratique 2 - Jeux séquence - Abdelhadi Mejdoubi           |")
-        print("|-----------------------------------------------------------------|")
-        print("| Le principe du jeu est de reproduire une séquence de lumières LED donnée par l’ordinateur. |")
+        print("|------------------------------------------------------------------------------------------------------------------------------------------------------------------|")
+        print("|                                          Travail pratique 2 - Jeux séquence - Abdelhadi Mejdoubi                                                                 |")
+        print("|------------------------------------------------------------------------------------------------------------------------------------------------------------------|")
+        print("| Le principe du jeu est de reproduire une séquence de lumières LED donnée par l’ordinateur.                                                                       |")
         print("| Quand la séquence est réussie par le joueur, une nouvelle séquence de lumières LED est donnée par l’ordinateur en ajoutant une lumière LED de plus aléatoirement.|")
-        print("| Et ainsi de suite jusqu’à ce que le joueur atteigne le maximum de 20 séquences ou que je joueur se trompe dans la séquence.|")          
-        print("|-----------------------------------------------------------------|")
+        print("| Et ainsi de suite jusqu’à ce que le joueur atteigne le maximum de 20 séquences ou que le joueur se trompe dans la séquence.                                      |")          
+        print("|------------------------------------------------------------------------------------------------------------------------------------------------------------------|")
         print("")
-    
     
     def niveau_difficulte(self):
         print("")
@@ -59,7 +58,6 @@ class Partie():
                 print("")
                 break            
     
-
     def clignotage_LED(self):
         for i in range(3):
             self.led_bleu.value(1)
@@ -71,4 +69,25 @@ class Partie():
             self.led_vert.value(0)
             sleep(0.5)
  
+    def nouvelle_sequence(self):
+        self.sequence_en_cours.append(random.choice(["bleu", "rouge", "vert"]))
+        print("Séquence numéro", str(len(self.sequence_en_cours)))  
+        sleep(self.niveau_pause)
+        for couleur in self.sequence_en_cours:
+            if couleur == "bleu":
+                self.led_bleu.value(1)
+                sleep(self.niveau_pause)
+                self.led_bleu.value(0)
+                sleep(self.niveau_pause)
+            elif couleur == "rouge":
+                self.led_rouge.value(1)
+                sleep(self.niveau_pause)
+                self.led_rouge.value(0)
+                sleep(self.niveau_pause)
+            elif couleur == "vert":
+                self.led_vert.value(1)
+                sleep(self.niveau_pause)
+                self.led_vert.value(0)
+                sleep(self.niveau_pause)
+                
     
