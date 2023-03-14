@@ -90,4 +90,11 @@ class Partie():
                 self.led_vert.value(0)
                 sleep(self.niveau_pause)
                 
-    
+    def jouer(self):
+        # Affichage des règles et du nom du joueur
+        self.affichage_regles()
+        self.nomJoueur = input("Veuillez entrer votre nom : ")
+        # Demander le niveau de difficulté
+        self.niveau_difficulte()
+        
+        
