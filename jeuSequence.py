@@ -38,26 +38,37 @@ class Partie():
     def niveau_difficulte(self):
         print("")
         print("Veuillez choisir un niveau:")
-        print("Bouton bleu: facile (pause = 2 seconde)")
-        print("Bouton rouge: intermédiaire (pause = 1 seconde)")
-        print("Bouton vert: difficile (pause = 0.5 seconde)")
+        print("Bouton bleu: facile (pause = 1 seconde)")
+        print("Bouton rouge: intermédiaire (pause = 0.5 seconde)")
+        print("Bouton vert: difficile (pause = 0.25 seconde)")
         print("")
         while True:
             if not self.btn_bleu.value():
-                self.niveau_pause = 1.5
+                self.niveau_pause = 1
                 print("Vous avez choisi le niveau facile.")
                 print("")
                 break
             elif not self.btn_rouge.value():
-                self.niveau_pause = 1
+                self.niveau_pause = 0.5
                 print("Vous avez choisi le niveau intermédiaire.")
                 print("")
                 break
             elif not self.btn_vert.value():
-                self.niveau_pause = 0.5
+                self.niveau_pause = 0.25
                 print("Vous avez choisi le niveau difficile.")
                 print("")
                 break            
     
 
+    def clignotage_LED(self):
+        for i in range(3):
+            self.led_bleu.value(1)
+            self.led_rouge.value(1)
+            self.led_vert.value(1)
+            sleep(0.5)
+            self.led_bleu.value(0)
+            self.led_rouge.value(0)
+            self.led_vert.value(0)
+            sleep(0.5)
+ 
     
