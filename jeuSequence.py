@@ -137,6 +137,27 @@ class Partie():
                 print("Mauvaise réponse. La partie est terminée.")
                 print("")
                 
+        # Clignotage des LED pour signaler la fin de partie si le joueur a fait une erreur ou s'il a atteint le nombre maximum de séquence
+        self.clignotage_LED()
         
+        # Affichage du nom du joueur et le pointage final
+        self.afficherPartie()
+        
+        # Vider la sequence à la fin de la partie et mettre le pointage à 0
+        self.sequence_en_cours = []
+        self.pointage = 0
+        
+        # Demander au joueur s'il veut recommencer une partie
+        while True:
+            print("")
+            reponse = input("Voulez-vous recommencer une partie ? (Oui/Non) : ")
+            if reponse.lower() == "oui":
+                self.jouer()
+                break
+            elif reponse.lower() == "non":
+                self.partie_en_cours = False
+                break
+            else:
+                print("Veuillez répondre par 'Oui' ou 'Non'.")
 partie  = Partie()
 partie.jouer()  
