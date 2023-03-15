@@ -97,4 +97,31 @@ class Partie():
         # Demander le niveau de difficulté
         self.niveau_difficulte()
         
-        
+        # Début de la partie
+        self.partie_en_cours = True
+        while self.partie_en_cours and len(self.sequence_en_cours) < 20:
+            self.nouvelle_sequence()
+            # Attendre la réponse du joueur
+            self.sequence_joueur = []
+            for i in range(len(self.sequence_en_cours)):
+                while True:
+                    if not self.btn_bleu.value():
+                        self.sequence_joueur.append("bleu")
+                        self.led_bleu.value(1)
+                        sleep(self.niveau_pause)
+                        self.led_bleu.value(0)
+                        break
+                    elif not self.btn_rouge.value():
+                        self.sequence_joueur.append("rouge")
+                        self.led_rouge.value(1)
+                        sleep(self.niveau_pause)
+                        self.led_rouge.value(0)
+                        break
+                    elif not self.btn_vert.value():
+                        self.sequence_joueur.append("vert")
+                        self.led_vert.value(1)
+                        sleep(self.niveau_pause)
+                        self.led_vert.value(0)
+                        break
+                        
+            
