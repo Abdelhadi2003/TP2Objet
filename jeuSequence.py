@@ -124,4 +124,19 @@ class Partie():
                         self.led_vert.value(0)
                         break
                         
-            
+            # Vérifier si la réponse est correcte
+            if self.sequence_joueur == self.sequence_en_cours:
+                self.pointage += 1
+                print("Bonne réponse !")
+                print("")
+                if(self.pointage == 20):
+                    print("Bravo, vous avez réussi le jeu Simon")
+                    print("")
+            else:
+                self.partie_en_cours = False
+                print("Mauvaise réponse. La partie est terminée.")
+                print("")
+                
+        
+partie  = Partie()
+partie.jouer()  
